@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16ED2E3F164DCEB8006BA124 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED2E3E164DCEB8006BA124 /* Foundation.framework */; };
+		16ED2E44164DCEB8006BA124 /* BaaSKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ED2E43164DCEB8006BA124 /* BaaSKit.h */; };
+		16ED2E46164DCEB8006BA124 /* BaaSKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ED2E45164DCEB8006BA124 /* BaaSKit.m */; };
+		F0E1E24F1651FE5A00502F95 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E1E24D1651FE5A00502F95 /* JSONKit.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16ED2E39164DCEB8006BA124 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				16ED2E44164DCEB8006BA124 /* BaaSKit.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		16ED2E3B164DCEB8006BA124 /* libBaaSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBaaSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16ED2E3E164DCEB8006BA124 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		16ED2E42164DCEB8006BA124 /* baaskit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baaskit-Prefix.pch"; sourceTree = "<group>"; };
+		16ED2E43164DCEB8006BA124 /* BaaSKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaaSKit.h; sourceTree = "<group>"; };
+		16ED2E45164DCEB8006BA124 /* BaaSKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaaSKit.m; sourceTree = "<group>"; };
+		F0E1E24B1651FE5A00502F95 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		F0E1E24C1651FE5A00502F95 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		F0E1E24D1651FE5A00502F95 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		F0E1E24E1651FE5A00502F95 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16ED2E38164DCEB8006BA124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16ED2E3F164DCEB8006BA124 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16ED2E30164DCEB8006BA124 = {
+			isa = PBXGroup;
+			children = (
+				16ED2E40164DCEB8006BA124 /* BaaSKit */,
+				16ED2E3D164DCEB8006BA124 /* Frameworks */,
+				16ED2E3C164DCEB8006BA124 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16ED2E3C164DCEB8006BA124 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16ED2E3B164DCEB8006BA124 /* libBaaSKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16ED2E3D164DCEB8006BA124 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0E1E24A1651FE5A00502F95 /* JSONKit */,
+				16ED2E3E164DCEB8006BA124 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16ED2E40164DCEB8006BA124 /* BaaSKit */ = {
+			isa = PBXGroup;
+			children = (
+				16ED2E43164DCEB8006BA124 /* BaaSKit.h */,
+				16ED2E45164DCEB8006BA124 /* BaaSKit.m */,
+				16ED2E41164DCEB8006BA124 /* Supporting Files */,
+			);
+			name = BaaSKit;
+			path = baaskit;
+			sourceTree = "<group>";
+		};
+		16ED2E41164DCEB8006BA124 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16ED2E42164DCEB8006BA124 /* baaskit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0E1E24A1651FE5A00502F95 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				F0E1E24B1651FE5A00502F95 /* CHANGELOG.md */,
+				F0E1E24C1651FE5A00502F95 /* JSONKit.h */,
+				F0E1E24D1651FE5A00502F95 /* JSONKit.m */,
+				F0E1E24E1651FE5A00502F95 /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16ED2E3A164DCEB8006BA124 /* BaaSKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16ED2E49164DCEB8006BA124 /* Build configuration list for PBXNativeTarget "BaaSKit" */;
+			buildPhases = (
+				16ED2E37164DCEB8006BA124 /* Sources */,
+				16ED2E38164DCEB8006BA124 /* Frameworks */,
+				16ED2E39164DCEB8006BA124 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BaaSKit;
+			productName = baaskit;
+			productReference = 16ED2E3B164DCEB8006BA124 /* libBaaSKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16ED2E32164DCEB8006BA124 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Jacob Sologub";
+			};
+			buildConfigurationList = 16ED2E35164DCEB8006BA124 /* Build configuration list for PBXProject "baaskit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 16ED2E30164DCEB8006BA124;
+			productRefGroup = 16ED2E3C164DCEB8006BA124 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16ED2E3A164DCEB8006BA124 /* BaaSKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16ED2E37164DCEB8006BA124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16ED2E46164DCEB8006BA124 /* BaaSKit.m in Sources */,
+				F0E1E24F1651FE5A00502F95 /* JSONKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		16ED2E47164DCEB8006BA124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		16ED2E48164DCEB8006BA124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16ED2E4A164DCEB8006BA124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/baaskit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "baaskit/baaskit-Prefix.pch";
+				HEADER_SEARCH_PATHS = JSONKit;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16ED2E4B164DCEB8006BA124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/baaskit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "baaskit/baaskit-Prefix.pch";
+				HEADER_SEARCH_PATHS = JSONKit;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16ED2E35164DCEB8006BA124 /* Build configuration list for PBXProject "baaskit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16ED2E47164DCEB8006BA124 /* Debug */,
+				16ED2E48164DCEB8006BA124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16ED2E49164DCEB8006BA124 /* Build configuration list for PBXNativeTarget "BaaSKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16ED2E4A164DCEB8006BA124 /* Debug */,
+				16ED2E4B164DCEB8006BA124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16ED2E32164DCEB8006BA124 /* Project object */;
+}
