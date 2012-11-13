@@ -28,6 +28,8 @@
 
 @interface BaaSKit : NSObject
 
+//==============================================================================
+/**	BaaSKit completion block typedefs. */
 typedef void (^BaaSKitInsertObjectBlock) (NSError* error, NSInteger statusCode, NSString* objectId);
 typedef void (^BaaSKitGetObjectBlock) (NSError* error, NSInteger statusCode, NSDictionary* object);
 typedef void (^BaaSKitGetObjectsBlock) (NSError* error, NSInteger statusCode, NSArray* objects);
@@ -92,52 +94,66 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
 + (BOOL) allowUntrustedCertificate;
 
 //==============================================================================
-/**	Inserts a new object into a specified collection. 
+/**	Inserts a new object into a specified collection and executes a block when 
+    the request completes or fails. If the collection with the specified name 
+    does not exist, one will be created.
  
-    @param collectionName   The collection to use.
+    @param collectionName   the collection to use.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) insertObject: (NSString*) collectionName
                object: (NSDictionary*) object
                 block: (BaaSKitInsertObjectBlock) block;
 
 //==============================================================================
-/**	Gets an object in a collection with a specified object id.
-    
-    @param collectionName   The collection to use.
-    @param objectId         The object id to use.
+/**	Gets an object in a collection with a specified object id and executes a 
+    block when the request completes or fails.
+ 
+    @param collectionName   the collection to use.
+    @param objectId         the object id to use.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) getObject: (NSString*) collectionName
           objectId: (NSString*) objectId
              block: (BaaSKitGetObjectBlock) block;
 
-/**	Gets objects in a collection matching the specified query.
+/**	Gets objects in a collection matching the specified query and executes a 
+    block when the request completes or fails.
  
-    @param collectionName   The collection to use.
-    @param query            The query to use.
+    @param collectionName   the collection to use.
+    @param query            the query to use.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) getObjects: (NSString*) collectionName
               query: (NSDictionary*) query
               block: (BaaSKitGetObjectsBlock) block;
 
-/**	Gets objects in a collection matching the specified query and 
-    sort.
+/**	Gets objects in a collection matching the specified query and sort and 
+    executes a block when the request completes or fails.
  
-    @param collectionName   The collection to use.
-    @param query            The query object to use.
-    @param sort             The sort object to use.
+    @param collectionName   the collection to use.
+    @param query            the query object to use.
+    @param sort             the sort object to use.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) getObjects: (NSString*) collectionName
               query: (NSDictionary*) query
                sort: (NSDictionary*) sort
               block: (BaaSKitGetObjectsBlock) block;
 
-/**	Gets objects in a collection matching the specified query, sort 
-    and limit.
+/**	Gets objects in a collection matching the specified query, sort and limit 
+    and executes a block when the request completes or fails.
  
-    @param collectionName   The collection to use.
-    @param query            The query object to use.
-    @param sort             The sort object to use.
-    @param limit            The maximum number of results to return.
+    @param collectionName   the collection to use.
+    @param query            the query object to use.
+    @param sort             the sort object to use.
+    @param limit            the maximum number of results to return.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) getObjects: (NSString*) collectionName
               query: (NSDictionary*) query
@@ -145,14 +161,16 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
               limit: (BOOL) limit
               block: (BaaSKitGetObjectsBlock) block;
 
-/**	Gets objects in a collection matching the specified query, sort
-    limit and skip.
+/**	Gets objects in a collection matching the specified query, sort limit and 
+    skip and executes a block when the request completes or fails.
  
-    @param collectionName   The collection to use.
-    @param query            The query object to use.
-    @param sort             The sort object to use.
-    @param limit            The maximum number of results to return.
-    @param skip             The number of results to skip.
+    @param collectionName   the collection to use.
+    @param query            the query object to use.
+    @param sort             the sort object to use.
+    @param limit            the maximum number of results to return.
+    @param skip             the number of results to skip.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) getObjects: (NSString*) collectionName
               query: (NSDictionary*) query
@@ -161,10 +179,13 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
                skip: (BOOL) skip
               block: (BaaSKitGetObjectsBlock) block;
 
-/**	Gets the number of objects in a collection matching a query.
+/**	Gets the number of objects in a collection matching a query and executes a 
+    block when the request completes or fails.
  
-    @param collectionName   The collection to use.
-    @param query            The query object to use.
+    @param collectionName   the collection to use.
+    @param query            the query object to use.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) getObjectCount: (NSString*) collectionName
                   query: (NSDictionary*) query
@@ -172,11 +193,14 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
 
 
 //==============================================================================
-/**	Updates an object in a collection with a specified object id.
-    
-    @param collectionName   The collection name.
-    @param objectId         The object id.
-    @param object           The update object.
+/**	Updates an object in a collection with a specified object id and executes a 
+    block when the request completes or fails.
+ 
+    @param collectionName   the collection name.
+    @param objectId         the object id.
+    @param object           the update object.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) updateObject: (NSString*) collectionName
              objectId: (NSString*) objectId
@@ -184,24 +208,30 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
                 block: (BaaSKitUpdateObjectBlock) block;
 
 
-/**	Updates objects in a collection matching a query.
+/**	Updates objects in a collection matching a query and executes a block when
+    the request completes or fails.
  
-    @param collectionName   The collection name.
-    @param query            The query object.
-    @param object           The update object.
+    @param collectionName   the collection name.
+    @param query            the query object.
+    @param object           the update object.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) updateObjects: (NSString*) collectionName
                  query: (NSDictionary*) query
                 object: (NSDictionary*) object
                  block: (BaaSKitUpdateObjectsBlock) block;
 
-/**	Updates objects in a collection matching a query.
+/**	Updates objects in a collection matching a query and executes a block when
+    the request completes or fails.
  
-    @param collectionName   The collection name.
-    @param query            The query object.
-    @param object           The update object.
+    @param collectionName   the collection name.
+    @param query            the query object.
+    @param object           the update object.
     @param upsert           Whether or to update an object if present, or insert
                             a new object.
+ 	@param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) updateObjects: (NSString*) collectionName
                  query: (NSDictionary*) query
@@ -209,15 +239,18 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
                 upsert: (BOOL) upsert
                  block: (BaaSKitUpdateObjectsBlock) block;
 
-/**	Updates objects in a collection matching a query.
+/**	Updates objects in a collection matching a query and executes a block when
+    the request completes or fails.
  
-    @param collectionName   The collection name.
-    @param query            The query object.
-    @param object           The update object.
+    @param collectionName   the collection name.
+    @param query            the query object.
+    @param object           the update object.
     @param upsert           Whether or to update an object if present, or insert
                             a new object.
     @param multi            Whether or to modify all matched objects, this is 
                             false by default.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) updateObjects: (NSString*) collectionName
                  query: (NSDictionary*) query
@@ -228,27 +261,36 @@ typedef void (^BaaSKitDeleteObjectsBlock) (NSError* error,  NSInteger statusCode
 
 
 //==============================================================================
-/**	Deletes an object in a collection with a specified object id.
-    
-    @param objectId         The object id.
+/**	Deletes an object in a collection with a specified object id and executes a 
+    block when the request completes or fails.
+ 
+    @param objectId         the object id.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) deleteObject: (NSString*) collectionName
              objectId: (NSString*) objectId
                 block: (BaaSKitDeleteObjectBlock) block;
 
-/**	Deletes objects in a collection matching a query.
+/**	Deletes objects in a collection matching a query and executes a block when 
+    the request completes or fails.
  
-    @param query            The query object.
+    @param query            the query object.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) deleteObjects: (NSString*) collectionName
                  query: (NSDictionary*) query
                  block: (BaaSKitDeleteObjectsBlock) block;
 
-/**	Deletes objects in a collection matching a query.
+/**	Deletes objects in a collection matching a query and executes a block when 
+    the request completes or fails.
  
-    @param query            The query object.
+    @param query            the query object.
     @param multi            Whether or to modify all matched objects, this is
                             false by default.
+    @param block            the block that will be executed when the request 
+                            completes or fails.
 */
 + (void) deleteObjects: (NSString*) collectionName
                  query: (NSDictionary*) query
