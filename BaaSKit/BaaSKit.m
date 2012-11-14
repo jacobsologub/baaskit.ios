@@ -272,7 +272,11 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
     NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@", [BaaSKit url].absoluteString, collectionName];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
-    BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_POST]];
+    NSMutableURLRequest* request = [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_POST];
+    [request setHTTPBody: [object JSONData]];
+    
+    BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: request];
+    
     [connection setAllowUntrustedCertificate: [BaaSKit allowUntrustedCertificate]];
     [connection startWithBlock:^(NSError* error, NSHTTPURLResponse* response, NSData* data) {
         
@@ -392,7 +396,10 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
     NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
-    BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_PUT]];
+    NSMutableURLRequest* request = [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_PUT];
+    [request setHTTPBody: [object JSONData]];
+    
+    BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: request];
     [connection setAllowUntrustedCertificate: [BaaSKit allowUntrustedCertificate]];
     [connection startWithBlock: ^(NSError* error, NSHTTPURLResponse* response, NSData* data) {
         
@@ -438,7 +445,10 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
     NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@?where=%@&upsert=%d&multi=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], upsert, multi];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
-    BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_GET]];
+    NSMutableURLRequest* request = [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_PUT];
+    [request setHTTPBody: [object JSONData]];
+    
+    BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: request];
     [connection setAllowUntrustedCertificate: [BaaSKit allowUntrustedCertificate]];
     [connection startWithBlock: ^(NSError* error, NSHTTPURLResponse* response, NSData* data) {
         
