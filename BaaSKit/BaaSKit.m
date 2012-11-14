@@ -276,7 +276,6 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
     [request setHTTPBody: [object JSONData]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: request];
-    
     [connection setAllowUntrustedCertificate: [BaaSKit allowUntrustedCertificate]];
     [connection startWithBlock:^(NSError* error, NSHTTPURLResponse* response, NSData* data) {
         
@@ -315,7 +314,8 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
               query: (NSDictionary*) query
               block: (BaaSKitGetObjectsBlock) block
 {
-    [self getObjects: collectionName query: query
+    [self getObjects: collectionName
+               query: query
                 sort: nil
                limit: 0
                 skip: 0
@@ -327,7 +327,8 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                sort: (NSDictionary*) sort
               block: (BaaSKitGetObjectsBlock) block
 {
-    [self getObjects: collectionName query: query
+    [self getObjects: collectionName
+               query: query
                 sort: sort
                limit: 0
                 skip: 0
@@ -340,8 +341,9 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
               limit: (BOOL) limit
               block: (BaaSKitGetObjectsBlock) block
 {
-    [self getObjects: collectionName query: query
-                sort: nil
+    [self getObjects: collectionName
+               query: query
+                sort: sort
                limit: limit
                 skip: 0
                block: block];
@@ -413,11 +415,11 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                  block: (BaaSKitUpdateObjectsBlock) block
 {
     [self updateObjects: collectionName
-                 query: query
-                object: object
-                upsert: NO
-                 multi: NO
-                 block: block];
+                  query: query
+                 object: object
+                 upsert: NO
+                  multi: NO
+                  block: block];
 }
 
 + (void) updateObjects: (NSString*) collectionName
