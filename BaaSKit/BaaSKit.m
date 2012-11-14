@@ -363,7 +363,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
     [connection setAllowUntrustedCertificate: [BaaSKit allowUntrustedCertificate]];
     [connection startWithBlock: ^(NSError* error, NSHTTPURLResponse* response, NSData* data) {
         
-        NSArray* results = [data objectFromJSONData];
+        NSArray* results = [[data objectFromJSONData] objectForKey: @"results"];
         block (error, response.statusCode, results);
     }];
 }
