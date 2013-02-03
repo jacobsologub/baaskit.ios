@@ -274,7 +274,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                object: (NSDictionary*) object
                 block: (BaaSKitInsertObjectBlock) block
 {
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@", [BaaSKit url].absoluteString, collectionName];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@", [BaaSKit url].absoluteString, collectionName];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     NSMutableURLRequest* request = [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_POST];
@@ -303,7 +303,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
           objectId: (NSString*) objectId
              block: (BaaSKitGetObjectBlock) block
 {
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_GET]];
@@ -363,14 +363,14 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
 {
     query = (query != nil) ? query : @{};
     sort = (sort != nil) ? sort : @{};
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@?where=%@&sort=%@&limit=%d&skip=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], [sort JSONString], limit, skip];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@?query=%@&sort=%@&limit=%d&skip=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], [sort JSONString], limit, skip];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_GET]];
     [connection setAllowUntrustedCertificate: [BaaSKit allowUntrustedCertificate]];
     [connection startWithBlock: ^(NSError* error, NSHTTPURLResponse* response, NSData* data) {
         
-        NSArray* results = [[data objectFromJSONData] objectForKey: @"results"];
+        NSArray* results = [data objectFromJSONData];
         block (error, response.statusCode, results);
     }];
 }
@@ -380,7 +380,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                   block: (BaaSKitGetObjectCountBlock) block
 {
     query = (query != nil) ? query : @{};
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@?where=%@&count", [BaaSKit url].absoluteString, collectionName, [query JSONString]];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@?query=%@&count", [BaaSKit url].absoluteString, collectionName, [query JSONString]];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_GET]];
@@ -400,7 +400,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                object: (NSDictionary*) object
                 block: (BaaSKitUpdateObjectBlock) block
 {
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     NSMutableURLRequest* request = [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_PUT];
@@ -449,7 +449,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                  block: (BaaSKitUpdateObjectsBlock) block
 {
     query = (query != nil) ? query : @{};
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@?where=%@&upsert=%d&multi=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], upsert, multi];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@?query=%@&upsert=%d&multi=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], upsert, multi];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     NSMutableURLRequest* request = [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_PUT];
@@ -470,7 +470,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
              objectId: (NSString*) objectId
                 block: (BaaSKitDeleteObjectBlock) block
 {
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@/%@", [BaaSKit url].absoluteString, collectionName, objectId];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_DELETE]];
@@ -497,7 +497,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                  block: (BaaSKitDeleteObjectsBlock) block
 {
     query = (query != nil) ? query : @{};
-    NSString* urlString = [NSString stringWithFormat: @"%@/classes/%@?where=%@&multi=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], multi];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@?query=%@&multi=%d", [BaaSKit url].absoluteString, collectionName, [query JSONString], multi];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_DELETE]];
