@@ -10,7 +10,6 @@
 		16ED2E3F164DCEB8006BA124 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED2E3E164DCEB8006BA124 /* Foundation.framework */; };
 		16ED2E44164DCEB8006BA124 /* BaaSKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16ED2E43164DCEB8006BA124 /* BaaSKit.h */; };
 		16ED2E46164DCEB8006BA124 /* BaaSKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ED2E45164DCEB8006BA124 /* BaaSKit.m */; };
-		F0E1E24F1651FE5A00502F95 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E1E24D1651FE5A00502F95 /* JSONKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,10 +31,6 @@
 		16ED2E42164DCEB8006BA124 /* baaskit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baaskit-Prefix.pch"; sourceTree = "<group>"; };
 		16ED2E43164DCEB8006BA124 /* BaaSKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaaSKit.h; sourceTree = "<group>"; };
 		16ED2E45164DCEB8006BA124 /* BaaSKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaaSKit.m; sourceTree = "<group>"; };
-		F0E1E24B1651FE5A00502F95 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
-		F0E1E24C1651FE5A00502F95 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		F0E1E24D1651FE5A00502F95 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		F0E1E24E1651FE5A00502F95 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +65,6 @@
 		16ED2E3D164DCEB8006BA124 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F0E1E24A1651FE5A00502F95 /* JSONKit */,
 				16ED2E3E164DCEB8006BA124 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -93,17 +87,6 @@
 				16ED2E42164DCEB8006BA124 /* baaskit-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F0E1E24A1651FE5A00502F95 /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				F0E1E24B1651FE5A00502F95 /* CHANGELOG.md */,
-				F0E1E24C1651FE5A00502F95 /* JSONKit.h */,
-				F0E1E24D1651FE5A00502F95 /* JSONKit.m */,
-				F0E1E24E1651FE5A00502F95 /* README.md */,
-			);
-			path = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16ED2E46164DCEB8006BA124 /* BaaSKit.m in Sources */,
-				F0E1E24F1651FE5A00502F95 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +200,7 @@
 				DSTROOT = /tmp/baaskit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baaskit/baaskit-Prefix.pch";
-				HEADER_SEARCH_PATHS = JSONKit;
+				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -233,7 +215,7 @@
 				DSTROOT = /tmp/baaskit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baaskit/baaskit-Prefix.pch";
-				HEADER_SEARCH_PATHS = JSONKit;
+				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

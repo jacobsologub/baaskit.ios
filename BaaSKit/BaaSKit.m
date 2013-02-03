@@ -25,7 +25,12 @@
 */
 
 #import "BaaSKit.h"
-#import "JSONKit.h"
+
+/** If you get an error here then you'll need to have JSONKit
+    https://github.com/johnezang/JSONKit/ and its header files will need to be
+    in your include path.
+*/
+#import <JSONKit.h>
 
 #pragma mark BaaSKitConnection
 #pragma mark -
