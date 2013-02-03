@@ -380,7 +380,7 @@ static NSString* const BKHTTP_DELETE    = @"DELETE";
                   block: (BaaSKitGetObjectCountBlock) block
 {
     query = (query != nil) ? query : @{};
-    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@?query=%@&count", [BaaSKit url].absoluteString, collectionName, [query JSONString]];
+    NSString* urlString = [NSString stringWithFormat: @"%@/collections/%@/count?query=%@", [BaaSKit url].absoluteString, collectionName, [query JSONString]];
     NSURL* url = [NSURL URLWithString: [urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     
     BaaSKitConnection* connection = [BaaSKitConnection connectionWithRequest: [[BaaSKit instance] requestWithUrlInternal: url method: BKHTTP_GET]];
