@@ -1,6 +1,8 @@
-BaaSKit iOS Client Library
-===========
+baaskit.ios
+============
+
 Backend as a Service Kit iOS Client Library
+
 <br/> 
 
 Usage
