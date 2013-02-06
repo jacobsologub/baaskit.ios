@@ -65,5 +65,5 @@ Update object(s):
 
 # License
 
-This library is released under the [The MIT License (MIT)](https://github.com/jacobsologub/baaskit-ios/blob/master/LICENSE).
+This library is released under the [The MIT License (MIT)](https://github.com/jacobsologub/baaskit.ios/blob/master/LICENSE).
     
